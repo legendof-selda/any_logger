@@ -1,0 +1,107 @@
+[project]
+name = "any_logger"
+authors = [
+    { name = "Stalin Sabu Thomas", email = "44336699+legendof-selda@users.noreply.github.com" },
+]
+readme = "README.md"
+dynamic = ["version", "description"]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+]
+
+[project.urls]
+Home = "https://github.com/legendof-selda/any_logger"
+
+[tool.poetry]
+name = "any-logger"
+version = "0.1.0"
+description = "A python logging module that allows you to switch between modules easily."
+authors = [
+    "Stalin Sabu Thomas <44336699+legendof-selda@users.noreply.github.com>",
+]
+license = "LICENSE"
+readme = "README.md"
+packages = [{ include = "any_logger" }]
+
+[tool.poetry-dynamic-versioning]
+enable = true
+fix-shallow-repository = true
+vcs = "git"
+metadata = false
+dirty = false
+strict = true
+pattern = "(?x)^v(?P<base>\\d+(\\.\\d+)*)(-(?P<stage>[a-zA-Z-_]+)\\.(?P<revision>\\d+))?$"
+bump = false
+latest-tag = true
+format = "v{base}{stage}{revision}"
+
+[tool.flake8]
+ignore = [
+    "E203",  # whitespace before ':'
+    "E266",  # Too many leading '#' for block comments
+    "PL123", # Use Path.open instead of open
+    "U101",  # Unused argument that starts with underscore
+    "W503",  # Newline before binary operator
+]
+max-line-length = 120
+max-complexity = 18
+inline-quotes = "double"
+known-modules = ":[wt_core]"
+application-names = "wt_core"
+max-expression-complexity = 10
+per-file-ignores = []
+
+[tool.isort]
+profile = "black"
+
+[tool.black]
+line-length = 120
+target-version = ['py311']
+
+[tool.poetry.dependencies]
+python = "^3.11"
+typing-extensions = "^4.12.2"
+loguru = { version = "^0.7.2", optional = true }
+
+[tool.poetry.extras]
+loguru = ["loguru"]
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.4.2"
+coverage = "^7.6.0"
+flake8 = "^7.1.0"
+flake8-absolute-import = "^1.0.0.2"
+flake8-builtins = "^2.5.0"
+flake8-expression-complexity = "^0.0.11"
+Flake8-pyproject = "^1.2.3"
+flake8-quotes = "^3.4.0"
+flake8-requirements = "^2.2.1"
+flake8-unused-arguments = "^0.0.13"
+flake8-use-fstring = "^1.4"
+flake8-use-pathlib = "^0.3.0"
+isort = "^5.13.2"
+jedi-language-server = "^0.41.4"
+pytest = "^8.3.2"
+pytest-cov = "^5.0.0"
+pytest-html = "^4.1.1"
+pytest-xdist = "^3.6.1"
+
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = "^1.6.0"
+mkdocs-autorefs = "^1.0.1"
+mkdocs-gen-files = "^0.5.0"
+mkdocs-git-authors-plugin = "^0.9.0"
+mkdocs-git-revision-date-localized-plugin = "^1.2.6"
+mkdocs-literate-nav = "^0.6.1"
+mkdocs-material = "^9.5.31"
+mkdocs-section-index = "^0.3.9"
+mkdocstrings = "^0.25.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
