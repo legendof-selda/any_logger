@@ -50,8 +50,8 @@ ignore = [
 max-line-length = 120
 max-complexity = 18
 inline-quotes = "double"
-known-modules = ":[wt_core]"
-application-names = "wt_core"
+known-modules = ":[any_logger]"
+application-names = "any_logger"
 max-expression-complexity = 10
 per-file-ignores = []
 
